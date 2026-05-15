@@ -8,8 +8,14 @@ cp .workers/workloads/workers_raft_tcp_consensus_test.go "${test_file}"
 trap 'rm -f "${test_file}"' EXIT
 
 export GOTRACEBACK=all
-export WORKERS_RAFT_OPS="${WORKERS_RAFT_OPS:-40}"
-export WORKERS_RAFT_APPLY_TIMEOUT="${WORKERS_RAFT_APPLY_TIMEOUT:-6s}"
-export WORKERS_RAFT_STABILIZE_TIMEOUT="${WORKERS_RAFT_STABILIZE_TIMEOUT:-20s}"
+export WORKERS_RAFT_SCENARIO="${WORKERS_RAFT_SCENARIO:-churn}"
+export WORKERS_RAFT_OPS="${WORKERS_RAFT_OPS:-72}"
+export WORKERS_RAFT_APPLY_TIMEOUT="${WORKERS_RAFT_APPLY_TIMEOUT:-8s}"
+export WORKERS_RAFT_STABILIZE_TIMEOUT="${WORKERS_RAFT_STABILIZE_TIMEOUT:-25s}"
 
-go test -run '^TestWorkersRaftTCPConsensus$' -count=1 -timeout "${WORKERS_RAFT_GO_TEST_TIMEOUT:-180s}" .
+args=()
+if [ "${WORKERS_RAFT_VERBOSE:-}" = "1" ]; then
+  args+=("-v")
+fi
+
+go test "${args[@]}" -run '^TestWorkersRaftTCPConsensus$' -count=1 -timeout "${WORKERS_RAFT_GO_TEST_TIMEOUT:-180s}" .
