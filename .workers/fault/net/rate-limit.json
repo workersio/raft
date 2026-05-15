@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "lo": {
+    "default": {
+      "rate": {
+        "bps": 1048576
+      },
+      "limit": 1000
+    }
+  }
+}

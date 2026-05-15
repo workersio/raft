@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "lo": {
+    "default": {
+      "delay": {
+        "time_ms": 40,
+        "jitter_ms": 10
+      },
+      "reorder": {
+        "percent": 10,
+        "gap": 5
+      }
+    }
+  }
+}

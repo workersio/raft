@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "lo": {
+    "default": {
+      "delay": {
+        "time_ms": 75,
+        "jitter_ms": 25
+      }
+    }
+  }
+}

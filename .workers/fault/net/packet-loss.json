@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "lo": {
+    "default": {
+      "delay": {
+        "time_ms": 10,
+        "jitter_ms": 5
+      },
+      "loss": {
+        "kind": "random",
+        "percent": 0.5
+      }
+    }
+  }
+}
